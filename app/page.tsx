@@ -6,6 +6,9 @@ import { ShoppingCart, MapPin, Phone, Mail } from "lucide-react"
 import Link from 'next/link'
 import { Layout } from "@/components/Layout"
 import { ProductCard } from "@/components/ProductCard"
+import dynamic from 'next/dynamic';
+
+const WeedGame = dynamic(() => import('./components/WeedGame'), { ssr: false });
 
 const featuredProducts = [
   { id: 1, name: "Fejki Olej 10%", price: "799 Kč", image: "/images/Weed VPQ7Aruqdzo.jpg" },
@@ -98,6 +101,16 @@ export default function Home() {
               <input type="email" placeholder="Váš e-mail" className="flex-grow px-4 py-2 rounded-l-md" />
               <Button variant="secondary" className="rounded-l-none">Odebírat</Button>
             </div>
+          </CardContent>
+        </Card>
+
+        {/* Weed Game */}
+        <Card className="col-span-1 md:col-span-2">
+          <CardHeader>
+            <CardTitle className="text-2xl font-bold text-green-800">Zahrajte si Weed Grower Game</CardTitle>
+          </CardHeader>
+          <CardContent className="flex justify-center bg-green-50 p-4 rounded-lg">
+            <WeedGame />
           </CardContent>
         </Card>
       </div>
